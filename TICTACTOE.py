@@ -22,7 +22,7 @@ def playerInput(board):
     if board[inp-1] == " ":
         board[inp-1] = currentPlayer
     else:
-        print("Oops player is already at that spot.")
+        print("Player is already at that spot.")
 
 
 # check for win or tie
