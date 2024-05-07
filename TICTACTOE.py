@@ -94,13 +94,23 @@ def switchPlayer():
         currentPlayer = "O"
     else:
         currentPlayer = "X"
+while True:
+    while gameRunning:
+        printBoard(board)
+        playerInput(board)
+        checkIfWin(board)
+        checkIfTie(board)
+        switchPlayer()
 
-while gameRunning:
-    printBoard(board)
-    playerInput(board)
-    checkIfWin(board)
-    checkIfTie(board)
-    switchPlayer()
-    checkIfWin(board)
-    checkIfTie(board)
+    play_again = input("Do you want to play again? (yes/no): ").lower()
+    if play_again != "yes":
+        print("Goodbye! Thanks for playing.")
+        break
+    else:
+        board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+        currentPlayer = "X"
+        winner = None
+        gameRunning = True
+
+
 
