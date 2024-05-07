@@ -3,6 +3,7 @@ import random
 board = [" ", " ", " ",
         " ", " ", " ",
         " ", " ", " "]
+players = {"X": 0, "O": 0}
 currentPlayer = "X"
 winner = None
 gameRunning = True
@@ -66,16 +67,22 @@ def checkIfWin(board):
     if checkHorizontle(board):
         printBoard(board)
         print(f"The winner is {winner}!")
+        players[winner] += 1
+        print(f"Player X wins: {players['X']}, Player O wins: {players['O']}")
         gameRunning = False
 
     elif checkRow(board):
         printBoard(board)
         print(f"The winner is {winner}!")
+        players[winner] += 1
+        print(f"Player X wins: {players['X']}, Player O wins: {players['O']}")
         gameRunning = False
 
     elif checkDiag(board):
         printBoard(board)
         print(f"The winner is {winner}!")
+        players[winner] += 1
+        print(f"Player X wins: {players['X']}, Player O wins: {players['O']}")
         gameRunning = False
 
 
