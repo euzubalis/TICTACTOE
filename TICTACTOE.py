@@ -1,9 +1,10 @@
 import random
 
+# Sukuriamas tuščias žaidimo lentos sąrašas su 9 langeliais
 board = [" ", " ", " ",
         " ", " ", " ",
         " ", " ", " "]
-players = {"X": 0, "O": 0}
+players = {"X": 0, "O": 0} #Žaidėjų laimėjimų skaičius, pradedant nuo 0
 currentPlayer = "X"
 winner = None
 gameRunning = True
@@ -19,11 +20,19 @@ def printBoard(board):
 
 # take player input
 def playerInput(board):
-    inp = int(input("Select a spot 1-9: "))
-    if board[inp-1] == " ":
-        board[inp-1] = currentPlayer
-    else:
-        print("Player is already at that spot.")
+
+    try:
+        inp = int(input("Select a spot 1-9: "))
+        if inp < 1 or inp > 9:
+            print("Invalid input! Please select a number between 1 and 9.")
+            return
+        if board[inp-1] == " ":
+            board[inp-1] = currentPlayer
+        else:
+            print("Player is already at that spot.")
+    except ValueError:
+        print(("Invalid input! Please enter a valid number."))
+
 
 
 # check for win or tie
